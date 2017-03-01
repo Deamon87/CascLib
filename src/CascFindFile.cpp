@@ -248,6 +248,7 @@ static bool DoStorageSearch(TCascSearch * pSearch, PCASC_FIND_DATA pFindData)
 //-----------------------------------------------------------------------------
 // Public functions
 
+EMSCRIPTEN_KEEPALIVE
 HANDLE WINAPI CascFindFirstFile(
     HANDLE hStorage,
     const char * szMask,
@@ -293,6 +294,7 @@ HANDLE WINAPI CascFindFirstFile(
     return (HANDLE)pSearch;
 }
 
+EMSCRIPTEN_KEEPALIVE
 bool WINAPI CascFindNextFile(
     HANDLE hFind,
     PCASC_FIND_DATA pFindData)
@@ -310,6 +312,7 @@ bool WINAPI CascFindNextFile(
     return DoStorageSearch(pSearch, pFindData);
 }
 
+EMSCRIPTEN_KEEPALIVE
 bool WINAPI CascFindClose(HANDLE hFind)
 {
     TCascSearch * pSearch;

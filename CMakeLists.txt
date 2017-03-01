@@ -79,7 +79,7 @@ if(APPLE)
     set(SRC_ADDITIONAL_FILES ${TOMCRYPT_FILES})
 endif()
 
-if (${CMAKE_SYSTEM_NAME} STREQUAL Linux)
+if (${CMAKE_SYSTEM_NAME} STREQUAL Linux OR ${CMAKE_SYSTEM_NAME} STREQUAL Emscripten)
     message(STATUS "Using Linux port")
     option(WITH_LIBTOMCRYPT "Use system LibTomCrypt library" OFF)
     if(WITH_LIBTOMCRYPT)
@@ -90,6 +90,7 @@ if (${CMAKE_SYSTEM_NAME} STREQUAL Linux)
     endif()
 endif()
 
+MESSAGE( STATUS "CMAKE_SYSTEM_NAME: " ${CMAKE_SYSTEM_NAME} )
 add_library(casc SHARED ${SRC_FILES} ${SRC_ADDITIONAL_FILES})
 target_link_libraries(casc ${LINK_LIBS})
 

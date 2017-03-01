@@ -1022,6 +1022,7 @@ static TCascStorage * FreeCascStorage(TCascStorage * hs)
 //-----------------------------------------------------------------------------
 // Public functions
 
+EMSCRIPTEN_KEEPALIVE
 bool WINAPI CascOpenStorage(const TCHAR * szDataPath, DWORD dwLocaleMask, HANDLE * phStorage)
 {
     TCascStorage * hs;
@@ -1086,6 +1087,7 @@ bool WINAPI CascOpenStorage(const TCHAR * szDataPath, DWORD dwLocaleMask, HANDLE
     return (nError == ERROR_SUCCESS);
 }
 
+EMSCRIPTEN_KEEPALIVE
 bool WINAPI CascGetStorageInfo(
     HANDLE hStorage,
     CASC_STORAGE_INFO_CLASS InfoClass,
@@ -1144,6 +1146,7 @@ bool WINAPI CascGetStorageInfo(
     return true;
 }
 
+EMSCRIPTEN_KEEPALIVE
 bool WINAPI CascCloseStorage(HANDLE hStorage)
 {
     TCascStorage * hs;

@@ -223,6 +223,13 @@
 #define ERROR_FILE_INCOMPLETE            1006        // The required file part is missing
 #endif
 
+//EMSCRIPTEN specific defines
+#ifdef  __EMSCRIPTEN__
+#include <emscripten.h>
+#else
+#define EMSCRIPTEN_KEEPALIVE
+#endif
+
 //-----------------------------------------------------------------------------
 // Swapping functions
 

@@ -147,6 +147,7 @@ static bool OpenFileByEncodingKey(TCascStorage * hs, PQUERY_KEY pEncodingKey, DW
 //-----------------------------------------------------------------------------
 // Public functions
 
+EMSCRIPTEN_KEEPALIVE
 bool WINAPI CascOpenFileByIndexKey(HANDLE hStorage, PQUERY_KEY pIndexKey, DWORD dwFlags, HANDLE * phFile)
 {
     TCascStorage * hs;
@@ -170,6 +171,7 @@ bool WINAPI CascOpenFileByIndexKey(HANDLE hStorage, PQUERY_KEY pIndexKey, DWORD 
     return OpenFileByIndexKey(hs, pIndexKey, dwFlags, (TCascFile **)phFile);
 }
 
+EMSCRIPTEN_KEEPALIVE
 bool WINAPI CascOpenFileByEncodingKey(HANDLE hStorage, PQUERY_KEY pEncodingKey, DWORD dwFlags, HANDLE * phFile)
 {
     TCascStorage * hs;
@@ -193,6 +195,7 @@ bool WINAPI CascOpenFileByEncodingKey(HANDLE hStorage, PQUERY_KEY pEncodingKey, 
     return OpenFileByEncodingKey(hs, pEncodingKey, dwFlags, (TCascFile **)phFile);
 }
 
+EMSCRIPTEN_KEEPALIVE
 bool WINAPI CascOpenFile(HANDLE hStorage, const char * szFileName, DWORD dwLocale, DWORD dwFlags, HANDLE * phFile)
 {
     TCascStorage * hs;
@@ -270,6 +273,7 @@ bool WINAPI CascOpenFile(HANDLE hStorage, const char * szFileName, DWORD dwLocal
     return (nError == ERROR_SUCCESS);
 }
 
+EMSCRIPTEN_KEEPALIVE
 DWORD WINAPI CascGetFileId(HANDLE hStorage, const char * szFileName)
 {
     TCascStorage * hs;
@@ -292,6 +296,7 @@ DWORD WINAPI CascGetFileId(HANDLE hStorage, const char * szFileName)
     return RootHandler_GetFileId(hs->pRootHandler, szFileName);
 }
 
+EMSCRIPTEN_KEEPALIVE
 bool WINAPI CascCloseFile(HANDLE hFile)
 {
     TCascFile * hf;

@@ -364,6 +364,7 @@ static int ProcessFileFrame(
 // WoW(18888)   (other)   0x000007d0 - 0x000007d0  0x00000397  0x00000397  0x000007d0  n/a
 //
 
+EMSCRIPTEN_KEEPALIVE
 DWORD WINAPI CascGetFileSize(HANDLE hFile, PDWORD pdwFileSizeHigh)
 {
     TCascFile * hf;
@@ -392,6 +393,7 @@ DWORD WINAPI CascGetFileSize(HANDLE hFile, PDWORD pdwFileSizeHigh)
     return hf->FileSize;
 }
 
+EMSCRIPTEN_KEEPALIVE
 DWORD WINAPI CascSetFilePointer(HANDLE hFile, LONG lFilePos, LONG * plFilePosHigh, DWORD dwMoveMethod)
 {
     TCascFile * hf;
@@ -456,6 +458,7 @@ DWORD WINAPI CascSetFilePointer(HANDLE hFile, LONG lFilePos, LONG * plFilePosHig
     return hf->FilePointer;
 }
 
+EMSCRIPTEN_KEEPALIVE
 bool WINAPI CascReadFile(HANDLE hFile, void * pvBuffer, DWORD dwBytesToRead, PDWORD pdwBytesRead)
 {
     PCASC_FILE_FRAME pFrame = NULL;
